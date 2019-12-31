@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhangsan.week1.dao.GoodsMapper">
+
+	<resultMap type="goods" id="goodsResultMap">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="ename" property="ename" />
+		<result column="price" property="price" />
+		<result column="num" property="num" />
+		<result column="pic" property="pic" />
+		<result column="bid" property="bid" />
+		<result column="tid" property="tid" />
+
+		<!-- 一对一 品牌 -->
+		<association property="brand" javaType="Brand"
+			select="selectByBid" column="bid"></association>
+		<!-- 一对一 类型 -->
+		<association property="type" javaType="Type"
+			select="selectByTid" column="tid"></association>
+
+	</resultMap>
+
+	<select id="selects" resultMap="goodsResultMap">
+
+		select * from t_goods
+	</select>
+
+	<!-- 查询品牌 -->
+
+	<select id="selectByBid" resultType="Brand">
+
+		select * from t_Brand where
+		id=#{bid}
+	</select>
+	<!-- 查询类型 -->
+	<select id="selectByTid" resultType="Type">
+
+		select * from t_type where id =#{tid}
+
+	</select>
+	
+	
+	<insert id="insert">
+	
+	insert into t_goods (name,ename,bid,tid,price,num,pic) values(#{name},#{ename},#{bid},#{tid},#{price},#{num},#{pic})
+	
+	</insert>
+	
+	
+	<select id="selectTypes"  resultType="Type">
+	  select * from t_type
+	
+	</select>
+	
+	<select id="selectBrands" resultType="Brand">
+	  select * from t_brand
+	
+	</select>
+</mapper>
