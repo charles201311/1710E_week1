@@ -1,5 +1,6 @@
 package com.zhangsan.week1.domain;
 //1708D 改变
+//1710E 改变
 public class Goods {
 private Integer id;
 private String name;
