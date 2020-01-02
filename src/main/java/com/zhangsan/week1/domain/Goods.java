@@ -1,5 +1,5 @@
 package com.zhangsan.week1.domain;
-
+//1708D ¸Ä±ä
 public class Goods {
 private Integer id;
 private String name;
