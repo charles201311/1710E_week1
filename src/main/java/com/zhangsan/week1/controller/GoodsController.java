@@ -21,11 +21,13 @@ import com.zhangsan.week1.domain.Brand;
 import com.zhangsan.week1.domain.Goods;
 import com.zhangsan.week1.domain.Type;
 import com.zhangsan.week1.service.GoodsService;
-
+//dev1µÄÄÚÈÝ
 @Controller
 public class GoodsController {
 	@Resource
 	private GoodsService goodsService;
+	
+	
 	
 	@RequestMapping("goods")
 	public String goods(Model model, Goods goods,@RequestParam(defaultValue = "1")Integer page,@RequestParam(defaultValue = "3") Integer pageSize) {
