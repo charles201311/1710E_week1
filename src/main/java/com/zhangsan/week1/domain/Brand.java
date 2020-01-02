@@ -1,5 +1,6 @@
 package com.zhangsan.week1.domain;
 //1710E 改变了
+//1708D改变代码
 public class Brand {
 	private Integer id;
 	private String name;
